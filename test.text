@@ -1,0 +1,49 @@
+function StudentProfile({ user }) {
+  return (
+    <div>
+      <h2>Student Profile</h2>
+      <p>Name: {user.name}</p>
+      <p>Email: {user.email}</p>
+      <p>Program: {user.program}</p>
+    </div>
+  )
+}
+
+function CourseList({ user }) {
+  return (
+    <div>
+      <h2>Course List</h2>
+      <StudentProfile user={user} />
+    </div>
+  )
+}
+
+function CourseCatalog({ user }) {
+  return (
+    <div>
+      <h2>Course Catalog</h2>
+      <CourseList user={user} />
+    </div>
+  )
+}
+
+function Dashboard({ user }) {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <CourseCatalog user={user} />
+    </div>
+  )
+}
+
+function App() {
+  const user = {
+    name: 'Jane Doe',
+    email: 'jane.doe@example.com',
+    program: 'Software Engineering',
+  }
+
+  return <Dashboard user={user} />
+}
+
+export default App
